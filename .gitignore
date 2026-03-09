@@ -1,0 +1,9 @@
+.vscode/
+__init__.*
+*.pyc
+*.csv
+git-commit-draft.txt
+src/asset/*
+src/__pycache__/*
+src/output/*
+*.zip
