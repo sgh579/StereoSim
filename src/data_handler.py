@@ -10,11 +10,6 @@ class DatasetWriter:
         self.left_dir = os.path.join(output_dir, "left")
         self.right_dir = os.path.join(output_dir, "right")
 
-        # --- 新增：清空逻辑 ---
-        if os.path.exists(self.output_dir):
-            print(f">>> Detected existing output directory: {self.output_dir}. Cleaning up...")
-            # 这种方式会删除整个文件夹及其内容
-            shutil.rmtree(self.output_dir)
         
         os.makedirs(self.left_dir, exist_ok=True)
         os.makedirs(self.right_dir, exist_ok=True)
@@ -31,8 +26,9 @@ class DatasetWriter:
 
     def save_metadata(self, config, intrinsic_matrix):
         """
-        保存数据集描述和相机内参
-        intrinsic_matrix: 3x3 的 numpy 数组
+        Stores dataset descriptions and camera intrinsics.
+
+        intrinsic_matrix: A 3x3 NumPy array
         """
         meta_path = os.path.join(self.output_dir, "dataset_info.txt")
         with open(meta_path, "w", encoding="utf-8") as f:
@@ -52,16 +48,14 @@ class DatasetWriter:
                 f.write(f" - Cube Scale: {config.CUBE_SCALE}m\n")
             else:
                 f.write(f" - Imported USD: {config.USD_PATH}\n")
-        # --- 新增：特定格式化输出 (Easy Copy 格式) ---
+
+            # Specific formatted output
             f.write("=== Easy Copy Format (K_flat and Baseline) ===\n")
             
-            # 1. 将 3x3 矩阵展平为包含 9 个元素的列表
+            # Flatten the 3x3 matrix into a list containing 9 elements.
             k_flat = intrinsic_matrix.flatten()
-            
-            # 2. 格式化为：空格分隔的字符串 (使用 :g 自动处理有效数字，避免过长的 0)
             k_line = " ".join([f"{x:1}" for x in k_flat])
             
-            # 3. 写入文件
             f.write(k_line + "\n")
             f.write(f"{config.BASELINE}\n")
         print(f">>> Metadata and Intrinsics saved to: {meta_path}")

@@ -1,9 +1,28 @@
+# =========================
+# Cache and compiled files 
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# IDE Local Configuration 
+# =========================
 .vscode/
-__init__.*
-*.pyc
+
+# =========================
+# output or other data files
+# =========================
 *.csv
-git-commit-draft.txt
-src/asset/*
-src/__pycache__/*
-src/output/*
 *.zip
+git-commit-draft.txt
+output/*
+!output/.gitkeep
+
+# =========================
+# assets
+# =========================
+# Keep the bunny.obj file used for quick testing.
+asset/*
+!asset/bunny.obj
+!asset/.gitkeep
