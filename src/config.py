@@ -2,6 +2,8 @@ import numpy as np
 from pathlib import Path
 
 class Config:
+    HEADLESS_FLAG = False
+    
     BASE_DIR = Path(__file__).resolve().parent.parent
     OUTPUT_DIR = BASE_DIR / "output"
     

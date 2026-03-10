@@ -1,10 +1,11 @@
+from src.config import Config
+
 from isaacsim import SimulationApp
-simulation_app = SimulationApp({"headless": False})
+simulation_app = SimulationApp({"headless": Config.HEADLESS_FLAG})
 
 import numpy as np
 from isaacsim.core.api import World
 
-from src.config import Config
 from src.camera_rig import StereoRig
 from src.scene_utils import setup_stereo_scene
 from src.data_handler import DatasetWriter
