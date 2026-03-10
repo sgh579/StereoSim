@@ -7,7 +7,7 @@ StereoSim is a lightweight, high-precision stereo vision dataset generation fram
 ### 1. Install NVIDIA Isaac Sim (Prerequisite)
 This project heavily relies on the core Isaac Sim API. Please ensure Isaac Sim is properly installed before running the tool.
 * **Supported Versions:** `5.1.0` or `6.0.0`
-* **Strong Recommendation:** It is highly recommended to install Isaac Sim by **building from source**. This ensures a clean underlying environment and predictable path resolution.
+* **Strong Recommendation:** It is recommended to install Isaac Sim by **building from source**.
 
 ### 2. Configure the Startup Script
 If you did **not** install via a source build (e.g., you used the Omniverse Launcher), you **must** manually modify the startup script located in the project root.
@@ -24,16 +24,11 @@ export isaac_sim_package_path="/home/username/isaacsim/_build/linux-x86_64/relea
 
 ## Quick Start
 
-
-
 The script will automatically clean the old `output` directory and launch the Isaac Sim environment:
 ```bash
 ./StereoSim.sh
 
 ```
-
-
-*(Note: The script supports parameter passthrough. If you want to add headless mode later, you can simply run `./StereoSim.sh --headless`)*
 
 ## Project Structure
 
@@ -53,9 +48,9 @@ StereoSim/
 
 ```
 
-## Core Configuration (stereo_config.py)
+## Core Configuration (src/config.py)
 
-All simulation parameters are centralized in the `Config` class within `stereo_config.py`. You can easily modify the following:
+All simulation parameters are centralized in the `Config` class within `src.config.py`. You can easily modify the following:
 
 * **Camera Hardware:** Custom resolution (`RESOLUTION`), focal length (`FOCAL_LENGTH`), and stereo baseline distance (`BASELINE`).
 * **Trajectory Mode:**
