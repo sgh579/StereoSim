@@ -1,6 +1,6 @@
 # StereoSim: Isaac Sim Stereo Camera Dataset Generation Tool
 
-StereoSim is a lightweight, high-precision stereo vision dataset generation framework based on NVIDIA Isaac Sim. It allows users to configure a custom stereo camera rig in a physically accurate simulation environment and capture high-resolution left/right images along with pose data using predefined trajectories (linear or orbit).因为Isaac Sim内部不支持原生的双目相机，所以只能自己定义左右相机，基于原生的相机类。不过这也允许开发者更自由地去控制相机姿态。
+StereoSim is a lightweight, high-precision stereo vision dataset generation framework based on NVIDIA Isaac Sim. Since Isaac Sim doesn't natively support stereo cameras, developers have to define their own left and right cameras based on the native camera classes. However, this also allows developers more freedom to control the camera pose.
 
 ## Environment & Installation
 
