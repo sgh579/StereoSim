@@ -5,5 +5,5 @@ __init__.*
 git-commit-draft.txt
 src/asset/*
 src/__pycache__/*
-src/output/*
+output/*
 *.zip

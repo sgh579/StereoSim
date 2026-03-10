@@ -74,7 +74,7 @@ def main():
             center_pos = calculate_trajectory(i, Config.NUM_FRAMES, Config)
             
             # B. 更新双目相机位姿 (内部处理 look-at 和基线偏移)
-            pos_l, pos_r, quat = rig.set_stereo_pose(center_pos, Config.TARGET_POINT)
+            pos_l, pos_r, quat = rig.set_stereo_pose_lookat(center_pos, Config.TARGET_POINT)
             
             # C. 仿真步进并渲染
             world.step(render=True)

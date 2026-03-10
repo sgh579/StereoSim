@@ -10,11 +10,6 @@ class DatasetWriter:
         self.left_dir = os.path.join(output_dir, "left")
         self.right_dir = os.path.join(output_dir, "right")
 
-        # --- 新增：清空逻辑 ---
-        if os.path.exists(self.output_dir):
-            print(f">>> Detected existing output directory: {self.output_dir}. Cleaning up...")
-            # 这种方式会删除整个文件夹及其内容
-            shutil.rmtree(self.output_dir)
         
         os.makedirs(self.left_dir, exist_ok=True)
         os.makedirs(self.right_dir, exist_ok=True)
